@@ -21,15 +21,6 @@ class Categoria(models.Model):
         return self.nombre
 
 
-class Insumo(models.Model):
-    nombre = models.CharField(max_length=100)
-    cantidad = models.IntegerField()
-    proveedor = models.CharField(max_length=100, null=True, blank=True)
-
-    def __str__(self):
-        return self.nombre
-
-
 class Pedido(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
@@ -37,3 +28,14 @@ class Pedido(models.Model):
 
     def __str__(self):
         return f"Pedido de {self.cantidad} x {self.producto.nombre} el {self.fecha_pedido}"
+
+
+class Insumo(models.Model):
+    nombre = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
+    talla = models.CharField(max_length=10, null=True, blank=True)
+    cantidad = models.IntegerField()
+    proveedor = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return self.nombre

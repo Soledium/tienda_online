@@ -18,5 +18,5 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 @admin.register(Insumo)
 class InsumoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'cantidad', 'proveedor')
+    list_display = ('nombre', 'cantidad', 'proveedor', 'slug')
     search_fields = ('nombre', 'proveedor') 
