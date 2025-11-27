@@ -20,8 +20,10 @@ from mainapp import views
 from django.conf import settings
 from django.conf.urls.static import settings, static
 
+
 urlpatterns = [
-    path('', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('', views.productos, name='home'),
 ]
 
 if settings.DEBUG:
