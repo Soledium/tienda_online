@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Producto
 # Create your views here.
 
-def productos(request):
-    lista_productos = Producto.objects.all()
-    return render(request, 'productos.html', {'productos': lista_productos})
+def home(request):
+    return render(request, 'home.html')
+
+
+def tazones(request):
+    return render(request, 'categorias.html')
