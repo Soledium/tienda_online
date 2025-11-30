@@ -10,6 +10,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('tazones/', views.tazones, name='tazones'),
+    path('poleras/', views.poleras, name='poleras'),
+    path('polerones/', views.polerones, name='polerones'),
+    path('zapatillas/', views.zapatillas, name='zapatillas'),
 ]
 
 if settings.DEBUG:

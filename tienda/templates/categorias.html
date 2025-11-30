@@ -11,9 +11,13 @@
 </head>
 
 <body class="container-fluid mt-3 bg-fondo">
+
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-dark white-text navbar-dark rounded">
         <div class="container-fluid">
-            <img class="float-start" href= "/" src="{% static 'img/gold.png' %}" width="90px" alt="" srcset="">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static '/gold.png' %}" height="50" alt="Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,17 +25,6 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'admin:index' %}">Acceso Administrativo</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                        </a>
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tazones</a></li>
-                        <li><a class="dropdown-item" href="#">Polerones</a></li>
-                        <li><a class="dropdown-item" href="#">Poleras</a></li>
-                        <li><a class="dropdown-item" href="#">Zapatillas</a></li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Seguimiento</a>
@@ -45,10 +38,45 @@
         </div>
     </nav>
 
-    <h1 class="text-center mt-3">Tazones / hay que arreglar esto</h1>
+    <!-- titulo categoria -->
+    <div class="alert display-4 mt-3 w-100 text-center">
+        <h1 class="text-center py-3">Tazones / hay que arreglar esto</h1>
+        <img src="{% static 'carrusel/tazon.webp' %}" class="d-block mx-auto img-fluid" style="max-width:600px;" alt="...">
+    </div>
 
-    <div class="row mt-3">
-        
+    <!-- tarjetas de productos-->
+    <div class="container-fluid mt-3">
+        <div class="row g-4 justify-content-center text-center">
+            <div class="col-12 col-md-4">
+                <div class="card text-bg-dark">
+                    <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card text-bg-dark">
+                    <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card text-bg-dark">
+                    <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

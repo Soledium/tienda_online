@@ -5,6 +5,14 @@ from .models import Producto
 def home(request):
     return render(request, 'home.html')
 
-
 def tazones(request):
+    return render(request, 'categorias.html')
+
+def poleras(request):
+    return render(request, 'categorias.html')
+
+def polerones(request):
+    return render(request, 'categorias.html')
+
+def zapatillas(request):
     return render(request, 'categorias.html')
