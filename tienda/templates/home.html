@@ -39,59 +39,16 @@
 
     <h1 class="text-center mt-3">Categorías</h1>
 
-    <div id="carouselExampleCaptions" class="carousel slide w-50 mx-auto mt-3" data-bs-ride="false">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="{% static 'carrusel/tazon.webp' %}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block text-dark">
-                <h5>Tazones personalizables</h5>
-                <p>Regala desde tu creatividad</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="{% static 'carrusel/polera.jpg' %}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Poleras personalizables</h5>
-                <p>Estampa tus diseños con nosotros.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="{% static 'carrusel/poleron.jpg' %}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block text-dark">
-                <h5>Polerones personalizables</h5>
-                <p>Dejanos tus mejores diseños para llevar este invierno.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="{% static 'carrusel/zapatillas.webp' %}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Zapatillas personalizables</h5>
-                <p>Prepara tus diseños para este verano.</p>
-            </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
     <div class="container mt-4">
         <div class="row g-4 justify-content-center mb">
 
             {% for cat in categorias %}
                 <div class="col-12 col-md-3">
                     <a href="{% url cat.url_name %}" class="text-decoration-none text-dark">
-                        <div class="card h-100 text-center">
-                            <img class="card-img-top img-fluid"
-                                src="{% static cat.imagen %}"
-                                alt="{{ cat.nombre }}">
+                        <div class="card h-100 text-center" >
+                            <img class="card-img-top img-fluid" src="{% static cat.imagen %}" style="height: 400px; object-fit: cover;" alt="{{ cat.nombre }}">
                             <div class="card-body">
-                                <h5 class="card-title">{{ cat.nombre }}</h5>
+                                <h5 class="card-title" style="color:darkgoldenrod; font-size:22px; font-weight:700;">{{ cat.nombre }}</h5>
                             </div>
                         </div>
                     </a>
@@ -100,7 +57,7 @@
 
         </div>
     </div>
-    <footer class="text-center mt-4 mb-3">
+    <footer class="text-center mt-4 p-3 bg-dark rounded" style="color:darkgoldenrod; font-size:22px; font-weight:400;">
         &copy; {% now "Y" %} Soledium Store. Todos los derechos reservados.
     </footer>
 

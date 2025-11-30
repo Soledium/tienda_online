@@ -19,7 +19,7 @@ class CategoriaAdmin(admin.ModelAdmin):
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
     list_display = ('producto', 'fecha_pedido', 'estado')
-    list_filter = ('fecha_pedido',)
+    list_filter = ('fecha_pedido', 'estado')
     search_fields = ('cliente__nombre', 'cliente__email')
 
 
@@ -27,4 +27,4 @@ class PedidoAdmin(admin.ModelAdmin):
 class InsumoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'cantidad', 'proveedor')
     prepopulated_fields = {'slug': ['nombre']}
-    search_fields = ('nombre', 'proveedor') 
+    search_fields = ('producto_nombre', 'token') 

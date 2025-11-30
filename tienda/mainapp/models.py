@@ -31,20 +31,34 @@ class EstadoPedido(models.Model):
     FINALIZADO = 'Finalizado', 'FINALIZADO' #entregado y aceptado
     CANCELADO = 'Cancelado', 'CANCELADO'  
 
-class EstadoPago(models.Model):
-    PENDIENTE = 'Pendiente', 'PENDIENTE'
-    PARCIAL = 'Parcial', 'PARCIAL'
-    PAGADO = 'Pagado', 'PAGADO'
 
 
 class Pedido(models.Model):
+    ESTADOS_PAGO = [
+        ('Pendiente', 'PENDIENTE'),
+        ('Completado', 'COMPLETADO'),    
+        ('Parcial', 'PARCIAL'),]
+
     token = models.UUIDField(default = uuid.uuid4, editable=False, unique=True, verbose_name= "Link de seguimiento")
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     estado = models.CharField(max_length = 50)
     fecha_pedido = models.DateTimeField(auto_now_add=True)
 
+    nombre_cliente = models.CharField(max_length=150)
+    email = models.EmailField(null=True, blank=True)
+    telefono = models.CharField(max_length=30, null=True, blank=True)
+    descripcion = models.TextField(verbose_name="Descripción de lo solicitado")
+
+    imagen_ref1 = models.ImageField(upload_to='pedidos/', null=True, blank=True)
+    imagen_ref2 = models.ImageField(upload_to='pedidos/', null=True, blank=True)
+    imagen_ref3 = models.ImageField(upload_to='pedidos/', null=True, blank=True)
+
+    fecha_necesita = models.DateField(null=True, blank=True, verbose_name="Fecha en que necesita el producto")
+    plataforma = models.ForeignKey('Plataforma', on_delete=models.SET_NULL, null=True, blank=True)
+    estado_pago = models.CharField(max_length=20, choices=ESTADOS_PAGO, default='Pendiente')
+
     def __str__(self):
-        return f"Pedido de {self.cantidad} x {self.producto.nombre} el {self.fecha_pedido}"
+        return f"Pedido de {self.producto.nombre} el {self.fecha_pedido.strftime('%Y-%m-%d')}"
 
 
 class Plataforma(models.Model):
