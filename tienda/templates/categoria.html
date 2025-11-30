@@ -27,6 +27,18 @@
                         <a class="nav-link" href="{% url 'admin:index' %}">Acceso Administrativo</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'polerones' %}">Polerones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'poleras' %}">Poleras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'zapatillas' %}">Zapatillas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tazones' %}">Tazones</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Seguimiento</a>
                     </li>
                 </ul>
@@ -40,43 +52,36 @@
 
     <!-- titulo categoria -->
     <div class="alert display-4 mt-3 w-100 text-center">
-        <h1 class="text-center py-3">Tazones / hay que arreglar esto</h1>
-        <img src="{% static 'carrusel/tazon.webp' %}" class="d-block mx-auto img-fluid" style="max-width:600px;" alt="...">
+        <h1 class="text-center py-3">{{ categoria }}</h1>
+        <img src="{% static 'carrusel/tazon.webp' %}" class="d-block mx-auto img-fluid" style="max-width:500px;" alt="...">
     </div>
 
     <!-- tarjetas de productos-->
     <div class="container-fluid mt-3">
         <div class="row g-4 justify-content-center text-center">
-            <div class="col-12 col-md-4">
+            {% for producto in productos %}
+                <div class="col-12 col-md-4">
                 <div class="card text-bg-dark">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
+                    <img class="card-img-top" src="{% static producto.imagen %}" alt="Title" style="height: 300px; object-fit: cover;"/>
                     <div class="card-body">
-                        <h4 class="card-title">Title</h4>
-                        <p class="card-text">Text</p>
+                        <h4 class="card-title">{{ producto.nombre }}</h4>
+                        <p class="card-text">$ {{ producto.precio }}</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-12 col-md-4">
-                <div class="card text-bg-dark">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
-                    <div class="card-body">
-                        <h4 class="card-title">Title</h4>
-                        <p class="card-text">Text</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4">
-                <div class="card text-bg-dark">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="Title" />
-                    <div class="card-body">
-                        <h4 class="card-title">Title</h4>
-                        <p class="card-text">Text</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {% endfor %}
     </div>
+    
+
+    <div class="container-fluid">
+        subir sus diseños y personalizar sus productos a través de nuestra plataforma en línea.
+    </div>
+
+    <a href="/" class="btn btn text-bg-dark mt-5 mb-2">Volver</a>
+    
+    <footer class="text-center mt-4 mb-3 text-bg-dark py-3 rounded">
+        &copy; {% now "Y" %} Soledium Store. Todos los derechos reservados.
+    </footer>
+
 </body>
 </html>

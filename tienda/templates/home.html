@@ -25,17 +25,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'admin:index' %}">Acceso Administrativo</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                        </a>
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="tazones/">Tazones</a></li>
-                        <li><a class="dropdown-item" href="polerones/">Polerones</a></li>
-                        <li><a class="dropdown-item" href="poleras/">Poleras</a></li>
-                        <li><a class="dropdown-item" href="zapatillas/">Zapatillas</a></li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Seguimiento</a>
                     </li>
@@ -48,7 +37,7 @@
         </div>
     </nav>
 
-    <h1 class="text-center mt-3">Productos / hay que arreglar esto</h1>
+    <h1 class="text-center mt-3">Categorías</h1>
 
     <div id="carouselExampleCaptions" class="carousel slide w-50 mx-auto mt-3" data-bs-ride="false">
         <div class="carousel-inner">
@@ -90,5 +79,30 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+    <div class="container mt-4">
+        <div class="row g-4 justify-content-center mb">
+
+            {% for cat in categorias %}
+                <div class="col-12 col-md-3">
+                    <a href="{% url cat.url_name %}" class="text-decoration-none text-dark">
+                        <div class="card h-100 text-center">
+                            <img class="card-img-top img-fluid"
+                                src="{% static cat.imagen %}"
+                                alt="{{ cat.nombre }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ cat.nombre }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <footer class="text-center mt-4 mb-3">
+        &copy; {% now "Y" %} Soledium Store. Todos los derechos reservados.
+    </footer>
+
 </body>
 </html>
