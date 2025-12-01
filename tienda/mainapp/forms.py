@@ -8,6 +8,7 @@ class PedidoForm(forms.ModelForm):
             'nombre_cliente',
             'email',
             'telefono',
+            'producto',
             'descripcion',
             'imagen_ref1',
             'imagen_ref2',

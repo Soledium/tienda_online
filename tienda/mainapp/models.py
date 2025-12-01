@@ -40,12 +40,7 @@ class Pedido(models.Model):
         ('Parcial', 'PARCIAL'),
     ]
 
-    token = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        unique=True,
-        verbose_name="Link de seguimiento"
-    )
+    token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, verbose_name="Link de seguimiento")
 
     producto = models.ForeignKey(Producto,on_delete=models.CASCADE,null=True,blank=True
     )

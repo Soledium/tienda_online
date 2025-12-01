@@ -26,7 +26,7 @@
         </div>
     </nav>
 
-    <h1 class="text-center mt-5" style="color:darkgoldenrod; font-size:40px; font-weight:9700;">Seguimiento de tu pedido</h1>
+    <h1 class="text-center mt-5" style="color:darkgoldenrod; font-size:40px; font-weight:600;">Seguimiento de tu pedido</h1>
 
     <form method="post" class="w-50 mx-auto mt-4">
         {% csrf_token %}
@@ -35,15 +35,19 @@
 
         <button type="submit" class="btn btn-dark mt-3" >Buscar pedido</button>
     </form>
-
-    {% if pedido %}
+    <div class="text-center mt-3">
+        {% if pedido %}
         <hr>
-        <h3>Pedido encontrado:</h3>
-        <p>Cliente: {{ pedido.nombre_cliente }}</p>
-        <p>Producto: {{ pedido.producto }}</p>
-        <p>Estado: {{ pedido.estado }}</p>
-        <p>Pago: {{ pedido.estado_pago }}</p>
+        <h3 class="text-center mt-5" style="color:darkgoldenrod; font-size:40px; font-weight:500; font-style: oblique;">Pedido encontrado:</h3>
+        <div class="text-bg-dark py-3 rounded" style="border-color: goldenrod;">
+            <p>Cliente: {{ pedido.nombre_cliente }}</p>
+            <p>Producto: {{ pedido.producto }}</p>
+            <p>Estado: {{ pedido.estado }}</p>
+            <p>Pago: {{ pedido.estado_pago }}</p>
+        </div>
     {% endif %}
+    </div>
+    
 
 </body>
 </html>

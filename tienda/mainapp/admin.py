@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Producto, Categoria, Insumo, Pedido
+from django.utils.html import format_html
 
 # Register your models here.
 
@@ -12,9 +13,14 @@ class PedidoAdmin(admin.ModelAdmin):
 
 @admin.register(Producto)
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'categoria', 'precio', 'imagen')
+    list_display = ('nombre', 'categoria', 'precio', 'vista_imagen',)
     search_fields = ('nombre', 'descripcion')
     list_filter = ('categoria',)
+
+    def vista_imagen(self, obj):
+        if obj.imagen:
+            return format_html ('<img src="{}" width="100" height="100" />', obj.imagen.url)
+        return "Sin imagen de referencia"
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin): 
