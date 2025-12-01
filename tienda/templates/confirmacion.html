@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Soledium Store - confirmación de pedido</title>
+</head>
+<body>
+    <h2>Tu pedido ha sido registrado</h2>
+
+    <p>Gracias, {{ pedido.nombre_cliente }}. Tu pedido se ha guardado en el sistema.</p>
+    <p>Estado inicial: {{ pedido.estado }} (pago: {{ pedido.estado_pago }})</p>
+
+    <p>Para hacer seguimiento de tu pedido, guarda este enlace:</p>
+    <p>
+        <a href="{{ url_seguimiento }}">{{ url_seguimiento }}</a>
+    </p>
+
+    <p><a href="{% url 'home' %}">Volver al inicio</a></p>
+</body>
+</html>

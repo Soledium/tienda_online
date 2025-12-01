@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from mainapp import views
 from django.conf import settings
-from django.conf.urls.static import settings, static
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -13,6 +13,9 @@ urlpatterns = [
     path('poleras/', views.poleras, name='poleras'),
     path('polerones/', views.polerones, name='polerones'),
     path('zapatillas/', views.zapatillas, name='zapatillas'),
+    path('solicitud/', views.solicitar, name='solicitud'),
+    path('seguimiento', views.seguimiento, name='seguimiento'),
+    
 ]
 
 if settings.DEBUG:

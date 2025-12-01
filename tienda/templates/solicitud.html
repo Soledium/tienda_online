@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Soledium Store - solicitud de pedido</title>
+</head>
+<body>
+    <h2>Solicitud de pedido personalizado</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Enviar solicitud</button>
+    </form>
+
+    <p><a href="{% url 'home' %}">Volver al inicio</a></p>
+
+    <!-- TODO: agregar formulario usando labels personalizados si lo necesitas -->
+</body>
+</html>

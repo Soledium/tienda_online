@@ -22,9 +22,9 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav w-100 mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'admin:index' %}">Acceso Administrativo</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'seguimiento' %}">Seguimiento</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'polerones' %}">Polerones</a>
@@ -38,14 +38,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'tazones' %}">Tazones</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Seguimiento</a>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link text-bg-dark" style="font-weight:500;" href="{% url 'admin:index' %}">Acceso Administrativo</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 border border-dark" type="search" placeholder="Productos" aria-label="Search">
-                    <button class="btn btn-outline-success bg-dark white-text" type="submit">Buscar</button>
-                </form>
             </div>
         </div>
     </nav>
@@ -71,20 +67,22 @@
             {% endfor %}
     </div>
     
-
-
-    <div class="container-fluid">
-        subir sus diseños y personalizar sus productos a través de nuestra plataforma en línea.
-    </div>
-
     <a href="/" class="btn btn text-bg-dark mt-5 mb-2">Volver</a>
 
-    
+    <div class="container-fluid text-center mt-4">
+        <p>
+            ¿Quieres un diseño personalizado con tus propias imágenes de referencia?
+            Puedes subir tus diseños y describir tu idea en nuestro formulario de pedido personalizado.
+        </p>
+        <a href="{% url 'solicitud' %}" class="btn btn-warning mt-2">
+            Subir mis imágenes y hacer un pedido
+        </a>
+    </div>
+
 
     <footer class="text-center mt-4 p-3 bg-dark rounded" style="color:darkgoldenrod; font-size:22px; font-weight:400;">
-        &copy; {% now "Y" %} Soledium Store. Todos los derechos reservados.
+        Soledium Store &copy; {% now "Y" %}. Todos los derechos reservados.
     </footer>
-
 
 </body>
 </html>
