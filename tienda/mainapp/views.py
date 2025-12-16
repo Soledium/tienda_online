@@ -157,3 +157,6 @@ def seguimiento(request):
         context['mensaje'] = 'No se encontró ningún pedido con ese código.'
 
     return render(request, 'seguimiento.html', context)
+
+
+
