@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Producto, Categoria, Insumo, Pedido
+from .models import Producto, Categoria, Insumo, Pedido, Plataforma
 from django.utils.html import format_html
 
 # Register your models here.
@@ -31,4 +31,9 @@ class CategoriaAdmin(admin.ModelAdmin):
 class InsumoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'cantidad')
     search_fields = ('nombre',) 
+
+@admin.register(Plataforma)
+class PlataformaAdmin(admin.ModelAdmin):
+    list_display = ('nombre',)
+    search_fields = ('nombre',)
 
