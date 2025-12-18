@@ -17,7 +17,7 @@ urlpatterns = [
     path('solicitud/', views.solicitar, name='solicitud'),
     path('seguimiento', views.seguimiento, name='seguimiento'),
     path("api/", include("mainapp.api_urls")),
-    
+    path("api-auth/", include("rest_framework.urls")),
 ]
 
 if settings.DEBUG:
